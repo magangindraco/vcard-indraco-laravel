@@ -45,17 +45,17 @@ class BusinessCardController extends Controller
         ]);
 
         // Upload foto
-    $photoPath = $request->file('photo')->store('photo', 'public'); // Simpan foto ke storage/public/avatars
+        $photoPath = $request->file('photo')->store('photo', 'public'); // Simpan foto ke storage/public/avatars
 
-    BusinessCard::create([
-        'name' => $request->name,
-        'photo' => $photoPath, // Simpan path foto di database
-        'position' => $request->position,
-        'phone_number' => $request->phone_number,
-        'email' => $request->email,
-    ]);
+        BusinessCard::create([
+            'name' => $request->name,
+            'photo' => $photoPath, // Simpan path foto di database
+            'position' => $request->position,
+            'phone_number' => $request->phone_number,
+            'email' => $request->email,
+        ]);
 
-    return redirect()->route('business-cards.index')->with('success', 'Kartu nama berhasil ditambahkan.');
+        return redirect()->route('admin.business-cards.index')->with('success', 'Kartu nama berhasil ditambahkan.');
     }
 
 
@@ -65,9 +65,10 @@ class BusinessCardController extends Controller
      */
     public function show($id)
     {
-        $card = BusinessCard::findOrFail($id);
-        return view('business_cards.show', compact('card'));
+        $card = BusinessCard::find($id); // Mendapatkan data kartu nama dari database
+        return view('business_cards.show', compact('card')); // Kirim data ke view
     }
+
 
 
 
@@ -142,7 +143,7 @@ class BusinessCardController extends Controller
         $card = BusinessCard::findOrFail($id);
         $card->delete();
 
-        return redirect()->route('business-cards.index')->with('success', 'Kartu nama berhasil dihapus.');
+        return redirect()->route('admin.business-cards.index')->with('success', 'Kartu nama berhasil dihapus.');
     }
 
 
