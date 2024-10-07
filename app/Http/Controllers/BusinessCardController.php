@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\BusinessCard;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Log;
 use Str; // untuk membuat slug
 
 
@@ -13,12 +14,13 @@ class BusinessCardController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+    // Menampilkan semua kartu bisnis
     public function index()
     {
-        $cards = BusinessCard::all();
-        return view('business_cards.index', compact('cards'));
+        $businessCards = BusinessCard::all();
+        return view('business_cards.index', compact('businessCards'));
     }
-
 
 
     /**
@@ -26,9 +28,9 @@ class BusinessCardController extends Controller
      */
     public function create()
     {
+        // dd('Create Method Hit');
         return view('business_cards.create');
     }
-
 
 
     /**
@@ -55,7 +57,7 @@ class BusinessCardController extends Controller
             'email' => $request->email,
         ]);
 
-        return redirect()->route('admin.business-cards.index')->with('success', 'Kartu nama berhasil ditambahkan.');
+        return redirect()->route('business-cards.index')->with('success', 'Kartu nama berhasil ditambahkan.');
     }
 
 
@@ -63,42 +65,22 @@ class BusinessCardController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    // Menampilkan detail kartu bisnis berdasarkan nama
+    public function show($name)
     {
-        $card = BusinessCard::find($id); // Mendapatkan data kartu nama dari database
-        return view('business_cards.show', compact('card')); // Kirim data ke view
+        $businessCard = BusinessCard::where('name', $name)->firstOrFail(); // Mendapatkan data kartu nama dari database
+        return view('business_cards.show', compact('businessCard')); // Kirim data ke view
     }
-
 
 
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($id)
+    public function edit($name)
     {
-        $card = BusinessCard::findOrFail($id);
-        return view('business_cards.edit', compact('card'));
-    }
-
-    public function adminIndex()
-    {
-        $cards = BusinessCard::all(); // Mengambil semua data kartu nama
-        return view('admin.business_cards.index', compact('cards'));
-    }
-
-
-    public function showByUsername($username)
-    {
-        $card = BusinessCard::where('name', $username)->firstOrFail();
-        return view('business_cards.show', compact('card'));
-    }
-
-
-    public function showByName($name)
-    {
-        $card = BusinessCard::where('name', $name)->firstOrFail(); // Cari kartu nama berdasarkan nama
-        return view('business_cards.vcard', compact('card'));
+        $businessCard = BusinessCard::where('name', $name)->firstOrFail(); // Menggunakan where untuk mencari berdasarkan nama
+        return view('business_cards.edit', compact('businessCard'));
     }
 
 
@@ -107,9 +89,9 @@ class BusinessCardController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $name) // Ganti $id dengan $name
     {
-        $card = BusinessCard::findOrFail($id);
+        $card = BusinessCard::where('name', $name)->firstOrFail(); // Menggunakan where untuk mencari berdasarkan nama
 
         $request->validate([
             'name' => 'required',
@@ -135,16 +117,18 @@ class BusinessCardController extends Controller
     }
 
 
+
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id)
+    public function destroy($name) // Ganti $id dengan $name
     {
-        $card = BusinessCard::findOrFail($id);
+        $card = BusinessCard::where('name', $name)->firstOrFail(); // Menggunakan where untuk mencari berdasarkan nama
         $card->delete();
 
-        return redirect()->route('admin.business-cards.index')->with('success', 'Kartu nama berhasil dihapus.');
+        return redirect()->route('business-cards.index')->with('success', 'Kartu nama berhasil dihapus.');
     }
+
 
 
 }

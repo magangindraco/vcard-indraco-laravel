@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Indrao, Indraco Jaya Perkasa, Indraco Webdev">
+    <meta name="generator" content="">
     <title>@yield('title', 'Kartu Nama Digital')</title>
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}"> <!-- Link ke file CSS -->
-    {{-- ikon --}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMN4juhO9Pcz5hPuvm/wj7G8g/dFl3B44hP2gB" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/icon-indraco.ico') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/dist/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/bootstrap-icons/bootstrap-icons.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/HelveticaNeue.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
     
 </head>
 

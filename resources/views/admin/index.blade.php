@@ -1,4 +1,4 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app')
 
 @section('content')
 <div class="container-fluid">
@@ -117,4 +117,4 @@
         transition: background-color 0.3s, color 0.3s;
     }
 </style>
-@endsection
+@endsection --}}

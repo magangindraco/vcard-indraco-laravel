@@ -8,26 +8,25 @@ return new class extends Migration {
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
-        Schema::create('business_cards', function (Blueprint $table) {
+        Schema::create('karyawans', function (Blueprint $table) {
             $table->id();
-            $table->string('name'); // Konsisten dengan model
-            $table->string('photo')->nullable();
-            $table->string('position'); // Konsisten dengan model
-            $table->string('phone_number'); // Konsisten dengan model
+            $table->string('nama');
+            $table->string('foto')->nullable();
+            $table->string('jabatan');
+            $table->string('nomor_telepon');
             $table->string('email')->unique();
             $table->timestamps();
         });
-        
     }
+
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('business_cards');
+        Schema::dropIfExists('karyawans');
     }
-
 };

@@ -1,148 +1,275 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('content')
-    <div class="container d-flex justify-content-center">
-        <div class="card text-center" style="width: 100%; max-width: 400px; padding: 20px;">
-            <!-- Logo perusahaan di atas profil, di tengah -->
-            <img src="{{ asset('images/indraco.jpg') }}" alt="Company Logo"
-                style="width: 120px; margin-bottom: 15px; display: block; margin-left: auto; margin-right: auto;">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Indrao, Indraco Jaya Perkasa, Indraco Webdev">
+    <meta name="generator" content="">
+    <title>{{ $businessCard->company }}</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/icon-indraco.ico') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/dist/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/bootstrap-icons/bootstrap-icons.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/HelveticaNeue.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMN4juhO9Pcz5hPuvm/wj7G8g/dFl3B44hP2gB" crossorigin="anonymous">
 
-            <!-- Avatar (Foto Profil) -->
-            <div style="width: 150px; height: 150px; overflow: hidden; border-radius: 50%; margin: 0 auto;">
-                <img src="{{ asset('storage/' . $card->photo) }}" style="width: 100%; height: 100%; object-fit: cover;"
-                    alt="{{ $card->name }}">
-            </div>
+</head>
 
-            <h5 class="mt-3">INDRACO</h5>
-            <h6>PT.INDRACO GLOBAL INDONESIA</h6>
-            <h6>{{ $card->job_title }}</h6> <!-- Menampilkan Jabatan -->
+<body>
+    <div class="wrapper shadow shadow-lg">
 
-            <!-- Kotak pembungkus tombol -->
-            <div class="mt-4 p-3"
-                style="background-color: #383838; border-radius: 0px; width: calc(100% + 40px); margin-left: -20px; margin-right: -20px;">
-                <!-- Tombol dengan ikon di atas teks di dalam flexbox -->
-                <div class="d-flex justify-content-between gap-2">
-                    <!-- Tombol 1: Website Indraco -->
-                    <a href="https://indraco.com" target="_blank"
-                        class="flex-fill d-flex flex-column align-items-center justify-content-center"
-                        style="height: 70px; text-decoration: none; color: white;">
-                        <i class="fas fa-globe mb-1" style="font-size: 24px; color: white;"></i>
-                        <span>Website Indraco</span>
-                    </a>
-
-                    <!-- Tombol 2: Website SDA -->
-                    <a href="https://sda.co.id" target="_blank"
-                        class="flex-fill d-flex flex-column align-items-center justify-content-center"
-                        style="height: 70px; text-decoration: none; color: white;">
-                        <i class="fas fa-building mb-1" style="font-size: 24px; color: white;"></i>
-                        <span>Website SDA</span>
-                    </a>
-
-                    <!-- Tombol 3: Save Contact -->
-                    <a href="#" class="flex-fill d-flex flex-column align-items-center justify-content-center"
-                        style="height: 70px; text-decoration: none; color: white;">
-                        <i class="fas fa-address-book mb-1" style="font-size: 24px; color: white;"></i>
-                        <span>Save Contact</span>
-                    </a>
+        <!-- header -->
+        <header class="kolom-header text-center">
+            <div class="container-fluid">
+                <div class="py-5"><img src="{{ asset('assets/img/logo-color.png') }}" width="135" height="auto"
+                        alt=""></div>
+                <div>
+                    
+                    <div class="img-circle">
+                        <img src="{{ asset('storage/' . $businessCard->photo) }}" class="img-fluid w-100" alt="">
+                    </div>
+                    
                 </div>
-            </div>
-
-            <!-- Informasi tambahan di bawah tombol -->
-            <div class="p-3"
-                style="background-color: #444444; border-radius: 0px; padding-left: 20px; padding-right: 20px; width: calc(100% + 40px); margin-left: -20px;">
-                <!-- Menampilkan nomor telepon -->
-                <p class="d-flex align-items-center" style="color: white;">
-                    <i class="fas fa-phone-alt mr-2" style="margin-right: 10px;"></i>
-                    {{ $card->phone_number }}
-                </p>
-
-                <!-- Menampilkan nomor posisi -->
-                <p class="d-flex align-items-center" style="color: white;">
-                    <i class="fas fa-phone-alt mr-2" style="margin-right: 10px;"></i>
-                    {{ $card->position }}
-                </p>
-
-                <!-- Menampilkan email -->
-                <p class="d-flex align-items-center" style="color: white;">
-                    <i class="fas fa-envelope mr-2" style="margin-right: 10px;"></i>
-                    <a href="mailto:{{ $card->email }}" style="text-decoration: none; color: inherit;">
-                        {{ $card->email }}
-                    </a>
-                </p>
-
-                <!-- Menampilkan alamat (jika ada) -->
-                @if ($card->address)
-                    <p class="d-flex align-items-center" style="color: white;">
-                        <i class="fas fa-map-marker-alt mr-2" style="margin-right: 10px;"></i>
-                        {{ $card->address }}
-                    </p>
-                @endif
-
-                <!-- Menampilkan website Indraco -->
-                <p class="d-flex align-items-center" style="color: white;">
-                    <i class="fas fa-globe mr-2" style="margin-right: 10px;"></i>
-                    <a href="https://indraco.com" target="_blank" style="text-decoration: none; color: inherit;">
-                        www.indraco.com
-                    </a>
-                </p>
-            </div>
-
-            <!-- Konten Contact Us -->
-            <div class="p-3"
-                style="background-color: #444444; border-radius: 0px; padding-left: 20px; padding-right: 20px; width: calc(100% + 40px); margin-left: -20px;">
-                <h4 style="color: white;">CONTACT US</h4>
-                <P style="color: white">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo nulla fugiat suscipit
-                    distinctio nihil eaque esse tenetur ullam voluptate dignissimos minus labore molestias excepturi
-                    explicabo saepe, perferendis a dolorum ipsum?</P>
-
-
-                <!-- Pembungkus tiga kotak sejajar -->
-                <div class="d-flex justify-content-between gap-2 mt-3 align-items-stretch">
-                    <!-- Kotak 1: our office -->
-                    <div class="flex-fill d-flex flex-column gap-2 align-items-center justify-content-start"
-                        style="border: 2px solid white; min-height: 170px; color: white; padding: 10px; border-radius: 10px;">
-                        <i class="fa-regular fa-building mb-2" style="font-size: 24px; margin-top: 10px;"></i>
-                        <span>Our Office</span>
-                        <small style="font-size:10px; text-align: center;">Jalan Semeru Industri 1 <br> No.133-135<br>Kec. Driyorejo,Gresik <br>61177 <br>Jawa Timur <br>Indonesia</small>
-                    </div>
-
-                    <!-- Kotak 2: lets talk -->
-                    <div class="flex-fill d-flex flex-column gap-2 align-items-center justify-content-start"
-                        style="border: 2px solid white; min-height: 170px; color: white; padding: 10px; border-radius: 10px;">
-                        <i class="fa-solid fa-phone-volume mb-2" style="font-size: 24px; margin-top: 10px;"></i>
-                        <span>Let's Talk</span>
-                        <small style="font-size:10px; text-align: center;">T. +62 31 756 8777</small>
-                    </div>
-
-                    <!-- Kotak 3: email inquiry -->
-                    <div class="flex-fill d-flex flex-column gap-2 align-items-center justify-content-start"
-                        style="border: 2px solid white; min-height: 170px; color: white; padding: 10px; border-radius: 10px;">
-                        <i class="fa-solid fa-envelope mb-2" style="font-size: 24px; margin-top: 10px;"></i>
-                        <span>Email Inquiry</span>
-                        <small style="font-size:10px; text-align: center;">E. info@indraco.com</small>
-                    </div>
+                <div class="py-4">
+                    <div class="title mb-2"><span>{{ $businessCard->name }}</span></div>
+                    <div class="text"><span>PT. INDRACO GLOBAL INDONESIA</span></div>
+                    <div class="text"><span>{{ $businessCard->position }}</span></div>
                 </div>
+                
+            </div>
+        </header>
+        <!-- end of header -->
 
-
-
-
+        <!-- menu -->
+        <div class="kolom-menu">
+            <div class="btn-group w-100">
+                <a href="https://indraco.com/brochures?lang=en" target="_blank" class="btn btn-dark">
+                    <img src="{{ asset('assets/img/ikon-brosur.png') }}" width="25" height="25" alt=""
+                        class="mb-1">
+                    <span>BROCHURES</span>
+                </a>
+                <a href="{{ $businessCard->website }}" target="_blank" class="btn btn-dark">
+                    <img src="{{ asset('assets/img/ikon-web.png') }}" width="25" height="25" alt=""
+                        class="mb-1">
+                    <span>WEBSITE</span>
+                </a>
+                <a href="{{ asset('vcard/' . $businessCard->vcard_file) }}" target="_blank" class="btn btn-dark">
+                    <img src="{{ asset('assets/img/ikon-user.png') }}" width="25" height="25" alt=""
+                        class="mb-1">
+                    <span>SAVE CONTACT</span>
+                </a>
             </div>
         </div>
-    </div>
+        <!-- end of menu -->
+
+        <!-- body -->
+        <div class="kolom-body bg-dark text-white">
+            <div class="container-fluid">
+                <ul class="list-unstyled m-0">
+                    <li class="media">
+                        <img src="{{ asset('assets/img/ikon-mobile.png') }}" width="25" height="25"
+                            class="me-4" alt="">
+                        <div class="media-body">
+                            <a href="tel:{{ $businessCard->mobile }}" target="_blank">
+                                <div class="media-title">{{ $businessCard->mobile }}</div>
+                                <div class="media-text">Mobile</div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="media">
+                        <img src="{{ asset('assets/img/ikon-phone.png') }}" width="25" height="25"
+                            class="me-4" alt="">
+                        <div class="media-body">
+                            <a href="tel:{{ $businessCard->phone_number }}" target="_blank">
+                                <div class="media-title">{{ $businessCard->phone_number }}</div>
+                                <div class="media-text">Office</div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="media">
+                        <img src="{{ asset('assets/img/ikon-email.png') }}" width="25" height="25"
+                            class="me-4" alt="">
+                        <div class="media-body">
+                            <a href="mailto:{{ $businessCard->email }}" target="_blank">
+                                <div class="media-title">{{ $businessCard->email }}</div>
+                                <div class="media-text">Email</div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="media">
+                        <img src="{{ asset('assets/img/ikon-map.png') }}" width="25" height="25"
+                            class="me-4" alt="">
+                        <div class="media-body">
+                            <a href="https://goo.gl/maps/UmQi3RbKgiBNkjCS6"
+                                target="_blank">
+                                <div class="media-title">  Jl. Semeru Industri I No.133-135 
+                                <br>Kec. Driyorejo, Gresik 61177 
+                                <br>Jawa Timur - Indonesia</div>
+                                <div class="media-text">Show on map</div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="media">
+                        <img src="{{ asset('assets/img/ikon-web.png') }}" width="25" height="25"
+                            class="me-4" alt="">
+                        <div class="media-body">
+                            <a href="https://indraco.com/public/home?lang=id" target="_blank">
+                                <div class="media-title">www.indraco.com</div>
+                                <div class="media-text">Website</div>
+                            </a>
+                            {{-- <a href="<?php echo $web; ?>" target="_blank">
+                                <div class="media-title"><?php echo $web; ?></div>
+                                <div class="media-text">Website</div>
+                            </a> --}}
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- kontak -->
+            <div class="container-fluid kontak text-center pt-0">
+                <hr>
+                <header class="mb-5">
+                    <div class="kontak-title mb-2">CONTACT US.</div>
+                    <div class="kontak-lead">
+                        Feel free to email us to provide some feedback on our information about us, or to just say
+                        hello!
+                    </div>
+                </header>
+
+                <div class="row g-2">
+                    <div class="col-4">
+                        <a href="https://goo.gl/maps/UmQi3RbKgiBNkjCS6" target="_blank">
+                            <div class="card rounded-4">
+                                <div class="card-header border-0">
+                                    <img src="assets/img/office-building.png" class="img-fluid" alt="">
+                                </div>
+                                <div class="card-body pt-0 px-2 pb-4">
+                                    <div class="card-title">Our Office</div>
+                                    <div class="card-text">
+                                        Jl. Semeru Industri I No.133-135
+                                        <br>Kec. Driyorejo, Gresik 61177
+                                        <br>Jawa Timur
+                                        <br>Indonesia
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-4">
+                        <a href="tel:03199000033" target="blank">
+                            <div class="card rounded-4">
+                                <div class="card-header border-0">
+                                    <img src="assets/img/office-phone.png" class="img-fluid" alt="">
+                                </div>
+                                <div class="card-body pt-0 px-2 pb-4">
+                                    <div class="card-title">Let's Talk</div>
+                                    <div class="card-text">
+                                        T. +62 31 766 8777 <br>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-4">
+                        <a href="mailto:info@indraco.com" target="blank">
+                            <div class="card rounded-4">
+                                <div class="card-header border-0">
+                                    <img src="assets/img/office-envelope.png" class="img-fluid" alt="">
+                                </div>
+                                <div class="card-body pt-0 px-2 pb-4">
+                                    <div class="card-title">Email Inquiry</div>
+                                    <div class="card-text">
+                                        E. info@indraco.com
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- end of kontak -->
+        </div>
+        <!-- end of body -->
+
+        <!-- footer -->
+        <footer class="kolom-footer bg-light">
+            <div class="container-fluid py-5">
+                <div class="mb-5">
+                    <div class="mb-3">
+                        <img src="assets/img/logo-gray.png" width="131" height="auto" alt="">
+                    </div>
+                    <div>Indraco Roasting fine exquisite coffee since 1971. </div>
+                </div>
+
+                <div class="mb-5">
+                    <p class="text-dark mb-3">Links</p>
+                    <div class="d-flex w-100">
+                        <ul class="list-unstyled w-50 m-0">
+                            <li class="mb-2"><a href="https://indraco.com/brands/rasa_sayang/" target="_blank">
+                                    <i class="bi bi-chevron-right"></i> Rasa Sayang
+                                </a></li>
+                            <li class="mb-2"><a href="https://indraco.com/brands/hao_cafe/" target="_blank">
+                                    <i class="bi bi-chevron-right"></i> Hao Cafe
+                                </a></li>
+                            <li class="mb-2"><a href="https://indraco.com/brands/tugu_buaya/" target="_blank">
+                                    <i class="bi bi-chevron-right"></i> Tugu Buaya
+                                </a></li>
+                            <li class="mb-2"><a href="https://indraco.com/brands/uang_emas/" target="_blank">
+                                    <i class="bi bi-chevron-right"></i> Uang Emas
+                                </a></li>
+                        </ul>
+                        <ul class="list-unstyled w-50 m-0">
+                            <li class="mb-2"><a href="https://indraco.com/brands/jaheku/" target="_blank">
+                                    <i class="bi bi-chevron-right"></i> Jaheku
+                                </a></li>
+                            <li class="mb-2"><a href="https://indraco.com/brands/brochoco/" target="_blank">
+                                    <i class="bi bi-chevron-right"></i> BROCHOCO
+                                </a></li>
+                            <li class="mb-2"><a href="https://indraco.com/brands/ucafe/" target="_blank">
+                                    <i class="bi bi-chevron-right"></i> UCAFE
+                                </a></li>
+                            <li class="mb-2"><a href="https://indraco.com/brands/supresso/" target="_blank">
+                                    <i class="bi bi-chevron-right"></i> Supresso
+                                </a></li>
+                            <li class="mb-2"><a href="https://indraco.com/brands/balicafe/" target="_blank">
+                                    <i class="bi bi-chevron-right"></i> Balicafé
+                                </a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="text-dark mb-3">Contact Us</p>
+                    <p class="m-0">
+                        PT. Indraco Global Indonesia
+                        <br>Jl. Semeru Industri I No.133-135
+                        <br>Kec. Driyorejo, Gresik 61177
+                        <br>Jawa Timur - Indonesia
+                        <br>T. +62 31 766 8777, 766 7388
+
+
+                        <br><br>E. info@indraco.com
+                        <br>www.indraco.com
+                    </p>
+                </div>
+            </div>
+
+            <div class="container-fluid border-top py-4 text-center">
+                <span>Copyright © 2023 Indraco. All Rights Reserved</span>
+            </div>
+        </footer>
+        <!-- end of footer -->
+
     </div>
 
-    <!-- Tambahan styling -->
-    <style>
-        /* Style agar avatar selalu lingkaran */
-        .rounded-circle {
-            object-fit: cover;
-            width: 100%;
-            height: 100%;
-        }
+    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript"></script>
+</body>
 
-        /* Jarak antara ikon dan teks di dalam p */
-        p i {
-            margin-right: 10px;
-        }
-    </style>
-@endsection
+</html>

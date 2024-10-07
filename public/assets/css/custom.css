@@ -1,0 +1,214 @@
+html, body {
+	font-family: 'HelveticaNeue', sans-serif;
+	background-color: #5d5d5d;
+}
+
+button:focus, 
+input:focus, 
+select:focus, 
+a:focus, 
+textarea:focus,
+.btn, 
+.navbar-toggler, 
+.btn-close {
+	outline: none!important;
+	box-shadow: none!important;
+	text-decoration: none!important;
+}
+
+.wrapper {
+	width: 100%;
+	max-width: 496px!important;
+	background-color: white;
+}
+
+@media (min-width: 576px) {
+	body {
+		padding: 40px 0;
+	}
+
+	.wrapper {
+		margin: auto;
+	}
+}
+
+.bg-dark {
+	background-color: #444444!important;
+}
+
+.bg-light {
+	background-color: #f1f2f2!important;
+}
+
+.media {
+	display: flex;
+}
+
+.media img.me-4 {
+	margin-top: 4px;
+}
+
+.media .media-text {
+	font-size: 11px;
+	color: #6d6e71;
+}
+
+/*kolom header*/
+
+.kolom-header .img-circle {
+	width: 250px;
+	height: 250px;
+	overflow-y: hidden;
+	border-radius: 100%;
+	margin: 0 auto;
+}
+
+.kolom-header .title {
+	font-size: 22px;
+}
+
+.kolom-header .text {
+	font-size: 11px;
+}
+
+/*kolom menu*/
+
+.kolom-menu .btn-dark {
+	background-color: #383838!important;
+	border-color: #383838!important;
+	border-radius: 0!important;
+	font-size: 11px;
+	width: 33.3333333%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: .75rem;
+	padding-bottom: .75rem;
+	color: #c3c3c3!important;
+}
+
+.kolom-menu .btn-dark:hover {
+	background-color: #6d6e71!important;
+	border-color: #6d6e71!important;
+	color: white!important;
+}
+
+/*kolom body*/
+
+.kolom-body .container-fluid:first-of-type {
+	padding: 58px 32px;
+}
+
+.kolom-body .container-fluid:last-of-type {
+	padding: 58px 15px;
+}
+
+@media (min-width: 576px) {
+	.kolom-body .container-fluid:first-of-type {
+		padding: 58px;
+	}
+
+	.kolom-body .container-fluid:last-of-type {
+		padding: 58px 40px;
+	}
+}
+
+.kolom-body ul li {
+	margin-bottom: 27px;
+}
+
+.kolom-body ul li a {
+	color: white;
+	text-decoration: none!important;
+}
+
+.kolom-body ul li a:hover .media-title {
+	text-decoration: underline;
+}
+
+.kolom-body ul li:last-of-type {
+	margin-bottom: 0;
+}
+
+.kolom-body hr {
+	margin-top: 0;
+	margin-bottom: 58px;
+}
+
+/*kontak*/
+
+.kontak .kontak-title {
+	font-size: 20px;
+}
+
+.kontak .kontak-lead {
+	font-size: 12px;
+	color: #939598;
+}
+
+.kontak .card {
+	max-width: 128px;
+	margin: 0 auto;
+	height: 100%;
+	transition: .36s;
+}
+
+.kontak .card,
+.kontak .card-header {
+	background-color: transparent;
+}
+
+.kontak .card-header {
+	padding: 2.25rem 0;
+}
+
+.kontak .card-header img {
+	width: 32px;
+	margin: auto;
+}
+
+.kontak .card {
+	font-size: 11px;
+	color: #939598;
+	border-color: white!important;
+}
+
+.kontak .card-title {
+	color: white;
+	font-size: 18px;
+}
+
+.kontak .card:hover {
+	background-color: white;
+}
+
+.kontak .card:hover .card-title {
+	color: black;
+}
+
+.kontak a {
+	text-decoration: none!important;
+	color: inherit;
+}
+
+/*footer*/
+
+.kolom-footer {
+	color: #939598;
+	font-size: 11px;
+}
+
+.kolom-footer .container-fluid {
+	padding-left: 40px;
+	padding-right: 40px;
+}
+
+.kolom-footer a {
+	color: #939598;
+	text-decoration: none;
+	transition: .36s;
+}
+
+.kolom-footer a:hover {
+	text-decoration: underline;
+}
