@@ -17,8 +17,12 @@
             <input type="text" name="position" class="form-control" required>
         </div>
         <div class="form-group">
-            <label for="phone_number">Nomor Telepon</label>
-            <input type="text" name="phone_number" class="form-control" required>
+            <label for="mobile">Nomor Mobile</label>
+            <input type="text" name="mobile" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="office">Nomor Office</label>
+            <input type="text" name="office" class="form-control" required>
         </div>
         <div class="form-group">
             <label for="email">Email</label>

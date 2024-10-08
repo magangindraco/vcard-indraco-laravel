@@ -15,7 +15,8 @@ return new class extends Migration {
             $table->string('name'); // Konsisten dengan model
             $table->string('photo')->nullable();
             $table->string('position'); // Konsisten dengan model
-            $table->string('phone_number'); // Konsisten dengan model
+            $table->string('mobile'); // Konsisten dengan model
+            $table->string('office');  // Konsisten dengan model
             $table->string('email')->unique();
             $table->timestamps();
         });

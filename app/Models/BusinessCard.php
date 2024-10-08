@@ -14,7 +14,8 @@ class BusinessCard extends Model
         'name',
         'photo',
         'position',
-        'phone_number',
+        'mobile',
+        'office',
         'email',
     ];
 

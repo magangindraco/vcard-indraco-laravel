@@ -22,6 +22,8 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
+// tes
+
 // Route untuk menampilkan halaman bisnis
 Route::get('/', [BusinessCardController::class, 'index'])->name('business-cards.index');
 Route::get('/v', [BusinessCardController::class, 'index'])->name('business-cards.index');

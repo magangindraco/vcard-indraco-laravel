@@ -42,7 +42,8 @@ class BusinessCardController extends Controller
             'name' => 'required',
             'photo' => 'required|image',
             'position' => 'required',
-            'phone_number' => 'required',
+            'mobile' => 'required',
+            'office' => 'required',
             'email' => 'required|email',
         ]);
 
@@ -53,7 +54,8 @@ class BusinessCardController extends Controller
             'name' => $request->name,
             'photo' => $photoPath, // Simpan path foto di database
             'position' => $request->position,
-            'phone_number' => $request->phone_number,
+            'mobile' => $request->mobile,
+            'office' => $request->office,
             'email' => $request->email,
         ]);
 

@@ -32,13 +32,8 @@
                     </a> --}}
 
                     <!-- Tombol Tambah Kartu Nama -->
-                    {{-- <a href="{{ route('business-cards.create') }}" class="btn btn-outline-light mt-4 text-start"
-                        style="display: flex; justify-content: flex-start; align-items: center;">
-                        <i class="fas fa-plus-circle mr-2"></i> Tambah Kartu Nama
-                    </a> --}}
-
                     <a href="{{ route('business-cards.create') }}" target="_blank" class="btn btn-outline-light mt-4 text-start">
-                        <img src="{{ asset('assets/img/ikon-card.png') }}" width="25" height="25" alt=""
+                        <img src="{{ asset('assets/img/ikon-kartu nama.png') }}" width="25" height="25" alt=""
                             class="mb-1">
                         <span>Tambah Kartu Nama</span>
                     </a>

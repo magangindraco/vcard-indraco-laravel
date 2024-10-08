@@ -50,7 +50,7 @@
                         class="mb-1">
                     <span>BROCHURES</span>
                 </a>
-                <a href="{{ $businessCard->website }}" target="_blank" class="btn btn-dark">
+                <a href="https://indraco.com" target="_blank" class="btn btn-dark">
                     <img src="{{ asset('assets/img/ikon-web.png') }}" width="25" height="25" alt=""
                         class="mb-1">
                     <span>WEBSITE</span>
@@ -83,7 +83,7 @@
                             class="me-4" alt="">
                         <div class="media-body">
                             <a href="tel:{{ $businessCard->phone_number }}" target="_blank">
-                                <div class="media-title">{{ $businessCard->phone_number }}</div>
+                                <div class="media-title">{{ $businessCard->office }}</div>
                                 <div class="media-text">Office</div>
                             </a>
                         </div>
@@ -144,9 +144,10 @@
                         <a href="https://goo.gl/maps/UmQi3RbKgiBNkjCS6" target="_blank">
                             <div class="card rounded-4">
                                 <div class="card-header border-0">
-                                    <img src="assets/img/office-building.png" class="img-fluid" alt="">
+                                    <img src="{{ asset('assets/img/office-building.png') }}" class="img-fluid" alt="">
                                 </div>
                                 <div class="card-body pt-0 px-2 pb-4">
+                                <img src="assets/img/ikon-kartu nama.png" class="img-fluid" alt="">
                                     <div class="card-title">Our Office</div>
                                     <div class="card-text">
                                         Jl. Semeru Industri I No.133-135
@@ -163,9 +164,10 @@
                         <a href="tel:03199000033" target="blank">
                             <div class="card rounded-4">
                                 <div class="card-header border-0">
-                                    <img src="assets/img/office-phone.png" class="img-fluid" alt="">
+                                    <img src="{{ asset('assets/img/office-phone.png') }}" class="img-fluid" alt="">
                                 </div>
                                 <div class="card-body pt-0 px-2 pb-4">
+                                    <br>
                                     <div class="card-title">Let's Talk</div>
                                     <div class="card-text">
                                         T. +62 31 766 8777 <br>
@@ -179,9 +181,10 @@
                         <a href="mailto:info@indraco.com" target="blank">
                             <div class="card rounded-4">
                                 <div class="card-header border-0">
-                                    <img src="assets/img/office-envelope.png" class="img-fluid" alt="">
+                                    <img src="{{ asset('assets/img/office-envelope.png') }}" class="img-fluid" alt="">
                                 </div>
                                 <div class="card-body pt-0 px-2 pb-4">
+                                    <br>
                                     <div class="card-title">Email Inquiry</div>
                                     <div class="card-text">
                                         E. info@indraco.com
