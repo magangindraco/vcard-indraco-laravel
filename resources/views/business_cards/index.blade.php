@@ -4,42 +4,7 @@
     <div class="container-fluid">
         <div class="row">
             <!-- Sidebar Admin -->
-            <div class="col-md-3" style="background-color: #5D5D5D; padding-top: 20px; min-height: 100vh;">
-                <!-- Logo Indraco di bagian atas sidebar -->
-                <div class="text-center mb-4">
-                    <img src="{{ asset('assets/img/logo-color.png') }}" alt="Indraco Logo" style="width: 100px;">
-                    <h4 class="text-white mt-2">Indraco Admin</h4>
-                </div>
 
-                <!-- Menu Navigasi dengan tombol terpisah -->
-                <div class="d-flex flex-column gap-2">
-                    <!-- Tombol Dashboard -->
-                    {{-- <a href="#" class="btn btn-outline-light text-start"
-                        style="display: flex; justify-content: flex-start; align-items: center;">
-                        <i class="fas fa-tachometer-alt mr-2"></i> Dashboard
-                    </a> --}}
-
-                    <!-- Tombol Users -->
-                    {{-- <a href="#" class="btn btn-outline-light text-start"
-                        style="display: flex; justify-content: flex-start; align-items: center;">
-                        <i class="fas fa-users mr-2"></i> Users
-                    </a> --}}
-
-                    <!-- Tombol Kartu Nama -->
-                    {{-- <a href="#" class="btn btn-outline-light text-start"
-                        style="display: flex; justify-content: flex-start; align-items: center;">
-                        <i class="fas fa-id-card mr-2"></i> Kartu Nama
-                    </a> --}}
-
-                    <!-- Tombol Tambah Kartu Nama -->
-                    <a href="{{ route('business-cards.create') }}" target="_blank" class="btn btn-outline-light mt-4 text-start">
-                        <img src="{{ asset('assets/img/ikon-kartu nama.png') }}" width="25" height="25" alt=""
-                            class="mb-1">
-                        <span>Tambah Kartu Nama</span>
-                    </a>
-
-                </div>
-            </div>
 
             <!-- Main Content -->
             <div class="col-md-9" style="background-color: #F8F9FA; min-height: 100vh;">

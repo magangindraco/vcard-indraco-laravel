@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Tambah Kartu Nama')
+
 @section('content')
 <div class="container">
     <form action="{{ route('business-cards.store') }}" method="POST" enctype="multipart/form-data">

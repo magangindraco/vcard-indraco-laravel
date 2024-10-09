@@ -14,12 +14,80 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/HelveticaNeue.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
     
+    <!-- Tambahkan CSS hover efek di sini -->
+    <style>
+        /* Efek hover untuk tombol di sidebar */
+        .btn-outline-light:hover {
+            background-color: #ffffff;
+            color: #5D5D5D;
+            border-color: #ffffff;
+        }
+
+        /* Efek hover untuk tombol action pada kartu nama */
+        .action-btn {
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .action-btn:hover {
+            background-color: #007bff;
+            color: white;
+            border-color: #007bff;
+        }
+
+        .btn-outline-info:hover {
+            background-color: #17a2b8;
+            color: white;
+        }
+
+        .btn-outline-warning:hover {
+            background-color: #ffc107;
+            color: white;
+        }
+
+        .btn-outline-danger:hover {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        /* Efek transisi umum */
+        .btn {
+            transition: background-color 0.3s, color 0.3s;
+        }
+    </style>
 </head>
 
 <body style="background-color: #5D5D5D">
 
-    <div>
-        @yield('content') <!-- Section utama untuk konten -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar Admin -->
+            <div class="col-md-3" style="background-color: #5D5D5D; padding-top: 20px; min-height: 100vh;">
+                <!-- Logo Indraco di bagian atas sidebar -->
+                <div class="text-center mb-4">
+                    <img src="{{ asset('assets/img/logo-color.png') }}" alt="Indraco Logo" style="width: 100px;">
+                    <h4 class="text-white mt-2">Indraco Admin</h4>
+                </div>
+
+                <!-- Menu Navigasi dengan tombol terpisah -->
+                <div class="d-flex flex-column gap-2">
+                    <!-- Tombol Tambah Kartu Nama -->
+                    <a href="{{ route('business-cards.create') }}" target="_blank" class="btn btn-outline-light mt-4 text-start">
+                        <img src="{{ asset('assets/img/ikon-kartu nama.png') }}" width="25" height="25" alt="" class="mb-1">
+                        <span>Tambah Kartu Nama</span>
+                    </a>
+                    <!-- Tombol Daftar Kartu Nama -->
+                    <a href="{{ route('business-cards.index') }}" target="_blank" class="btn btn-outline-light mt-4 text-start">
+                        <img src="{{ asset('assets/img/ikon-daftar.png') }}" width="25" height="25" alt="" class="mb-1">
+                        <span>Daftar Kartu Nama</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-md-9" style="background-color: #F8F9FA; min-height: 100vh;">
+                @yield('content') <!-- Section utama untuk konten -->
+            </div>
+        </div>
     </div>
 
     {{-- <footer>
