@@ -71,12 +71,12 @@
                 <!-- Menu Navigasi dengan tombol terpisah -->
                 <div class="d-flex flex-column gap-2">
                     <!-- Tombol Tambah Kartu Nama -->
-                    <a href="{{ route('business-cards.create') }}" target="_blank" class="btn btn-outline-light mt-4 text-start">
+                    <a href="{{ route('business-cards.create') }}" target="_self" class="btn btn-outline-light mt-4 text-start">
                         <img src="{{ asset('assets/img/ikon-kartu nama.png') }}" width="25" height="25" alt="" class="mb-1">
                         <span>Tambah Kartu Nama</span>
                     </a>
                     <!-- Tombol Daftar Kartu Nama -->
-                    <a href="{{ route('business-cards.index') }}" target="_blank" class="btn btn-outline-light mt-4 text-start">
+                    <a href="{{ route('business-cards.index') }}" target="_self" class="btn btn-outline-light mt-4 text-start">
                         <img src="{{ asset('assets/img/ikon-daftar.png') }}" width="25" height="25" alt="" class="mb-1">
                         <span>Daftar Kartu Nama</span>
                     </a>

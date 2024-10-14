@@ -6,6 +6,12 @@
 <div class="container">
     <form action="{{ route('business-cards.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
+        <!-- Input untuk file .vcf -->
+        <div class="form-group">
+            <label for="vcard">Unggah File VCF</label>
+            <input type="file" name="vcard" class="form-control" accept=".vcf">
+        </div>
+        
         <div class="form-group">
             <label for="name">Nama</label>
             <input type="text" name="name" class="form-control" required>
