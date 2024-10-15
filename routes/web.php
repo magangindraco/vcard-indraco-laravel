@@ -1,31 +1,12 @@
 <?php
 
 use App\Http\Controllers\BusinessCardController;
-use App\Http\Controllers\EmployeeController;
-use App\Http\Controllers\KaryawanController;
-
-use App\Http\Controllers\VCardController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+Route::get('/', [HomeController::class, 'welcome'])->name('home');
 
-// Route::get('/v', function () {
-//     return view('welcome');
-// });
-
-// tes
-
-// Route untuk menampilkan halaman bisnis
-Route::get('/', [BusinessCardController::class, 'index'])->name('business-cards.index');
+// Route untuk menampilkan halaman bisnis (vCard)
 Route::get('/v', [BusinessCardController::class, 'index'])->name('business-cards.index');
 
 // Route untuk menampilkan form tambah kartu nama

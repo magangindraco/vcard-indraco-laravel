@@ -1,112 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
-    <style>
-        /* Styles for the sidebar */
-        .sidebar {
-            background-color: #5D5D5D;
-            min-height: 100vh;
-            transition: width 0.3s ease;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .sidebar.collapsed {
-            width: 60px;
-        }
-
-        /* Styles for the main content */
-        .main-content {
-            background-color: #F8F9FA;
-            min-height: 100vh;
-            transition: margin-left 0.3s ease;
-            padding: 20px;
-        }
-
-        .sidebar-toggle {
-            cursor: pointer;
-            font-size: 25px;
-            color: white;
-            position: absolute;
-            left: 15px;
-            top: 15px;
-            z-index: 999;
-            transition: transform 0.3s ease;
-        }
-
-        /* Styles for the cards */
-        .card {
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Scrollable Section */
-        .scrollable {
-            max-height: 500px;
-            overflow-y: auto;
-            padding: 10px;
-            border-radius: 10px;
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Sidebar text animation */
-        .sidebar a {
-            transition: opacity 0.3s ease, transform 0.3s ease;
-        }
-
-        .sidebar.collapsed .sidebar-text {
-            opacity: 0;
-            transform: translateX(-20px);
-        }
-
-        .sidebar:not(.collapsed) .sidebar-text {
-            opacity: 1;
-            transform: translateX(0);
-        }
-    </style>
-
     <div class="container-fluid">
         <div class="row">
             <!-- Sidebar Admin -->
-            <div class="col-md-3 sidebar" id="sidebar">
-                <!-- Toggle Button -->
-                <div class="sidebar-toggle" onclick="toggleSidebar()">☰</div>
-
-                <!-- Logo Indraco di bagian atas sidebar -->
-                <div class="text-center mb-4">
-                    <img src="{{ asset('assets/img/logo-color.png') }}" alt="Indraco Logo" style="width: 100px;">
-                    <h4 class="text-white mt-2">Indraco Admin</h4>
-                </div>
-
-                <!-- Menu Navigasi dengan tombol terpisah -->
-                <div class="d-flex flex-column gap-2">
-                    <!-- Tombol Tambah Kartu Nama -->
-                    <a href="{{ route('business-cards.create') }}" class="btn btn-outline-light mt-4 text-start">
-                        <img src="{{ asset('public-assets-bootstraps-icons/plus-circle.svg') }}" width="20" height="20" alt="">
-                        <span class="sidebar-text">Tambah Kartu Nama</span>
-                    </a>
-                    <a href="{{ url('/about') }}" class="btn btn-outline-light text-start">
-                        <img src="{{ asset('public-assets-bootstraps-icons/info-circle.svg') }}" width="20" height="20" alt="">
-                        <span class="sidebar-text">About</span>
-                    </a>
-                </div>
-            </div>
 
             <!-- Main Content -->
-            <div class="col-md-9 main-content" id="main-content">
+            <div class="col-md-9" style="background-color: #F8F9FA; min-height: 100vh;">
                 <!-- Cards Section (Daftar Kartu Nama) -->
-                <div class="row mt-4 scrollable">
+                <div class="row mt-4">
                     @foreach ($businessCards as $businessCard)
                         <div class="col-md-6 mb-4">
-                            <div class="card h-100 text-center shadow-sm" style="border-radius: 10px;">
+                            <div class="card h-100 text-center shadow-sm card-3d">
                                 <!-- Foto Profil -->
                                 <img src="{{ asset('storage/' . $businessCard->photo) }}"
-                                    class="card-img-top rounded-circle mt-4 mx-auto"
+                                    class="card-img-top rounded-circle mt-4 mx-auto img-fluid"
                                     style="width: 100px; height: 100px; object-fit: cover;"
                                     alt="{{ $businessCard->name }}">
 
@@ -118,27 +26,31 @@
                                     <p class="card-text text-muted">{{ $businessCard->email }}</p>
                                 </div>
 
-                                <!-- Tombol Aksi dengan Ikon Bootstrap Icons -->
-                                <div class="card-footer d-flex justify-content-around bg-light">
-                                    <!-- Show -->
-                                    <a href="{{ route('business-cards.show', $businessCard->name) }}" class="btn btn-info btn-sm d-flex align-items-center">
-                                        <img src="{{ asset('public-assets-bootstraps-icons/eye.svg') }}" width="20" height="20" alt="">
-                                        <span class="sidebar-text">Show</span>
+                                <!-- Tombol Aksi dengan Ikon dan Efek Hover -->
+                                <div class="card-footer bg-white d-flex justify-content-center gap-2">
+                                    <a href="{{ route('business-cards.show', $businessCard->name) }}"
+                                        class="btn btn-outline-info btn-sm action-btn" style="flex: 1; max-width: 80px;">
+                                        <img src="{{ asset('assets/img/ikon-show.png') }}" width="25" height="25" alt=""
+                                            class="mb-1">
+                                        <span>Show</span>
                                     </a>
                                     
-                                    <!-- Edit -->
-                                    <a href="{{ route('business-cards.edit', $businessCard->name) }}" class="btn btn-warning btn-sm d-flex align-items-center">
-                                        <img src="{{ asset('public-assets-bootstraps-icons/pencil.svg') }}" width="20" height="20" alt="">
-                                        <span class="sidebar-text">Edit</span>
+                                    <a href="{{ route('business-cards.edit', $businessCard->name) }}"
+                                        class="btn btn-outline-warning btn-sm action-btn" style="flex: 1; max-width: 80px;">
+                                        <img src="{{ asset('assets/img/ikon-edit.png') }}" width="25" height="25" alt=""
+                                            class="mb-1"><br>
+                                        <span>Edit</span>
                                     </a>
 
-                                    <!-- Delete -->
-                                    <form action="{{ route('business-cards.destroy', $businessCard->name) }}" method="POST" style="display:inline;">
+                                    <form action="{{ route('business-cards.destroy', $businessCard->name) }}"
+                                        method="POST" style="display:inline;">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-sm d-flex align-items-center">
-                                            <img src="{{ asset('public-assets-bootstraps-icons/trash.svg') }}" width="20" height="20" alt="">
-                                            <span class="sidebar-text">Hapus</span>
+                                        <button type="submit" class="btn btn-outline-danger btn-sm action-btn"
+                                            style="flex: 1; max-width: 80px;">
+                                            <img src="{{ asset('assets/img/ikon-eraser.png') }}" width="25" height="25" alt=""
+                                            class="mb-1">
+                                            <span>Hapus</span>
                                         </button>
                                     </form>
                                 </div>
@@ -150,17 +62,64 @@
         </div>
     </div>
 
-    <script>
-        function toggleSidebar() {
-            const sidebar = document.getElementById('sidebar');
-            const mainContent = document.getElementById('main-content');
-
-            sidebar.classList.toggle('collapsed');
-            if (sidebar.classList.contains('collapsed')) {
-                mainContent.style.marginLeft = "60px"; // Adjust this value as needed
-            } else {
-                mainContent.style.marginLeft = "240px"; // Adjust this value as needed
-            }
+    <!-- Efek Hover CSS -->
+    <style>
+        /* Efek hover untuk tombol di sidebar */
+        .btn-outline-light:hover {
+            background-color: #ffffff;
+            color: #5D5D5D;
+            border-color: #ffffff;
         }
-    </script>
+
+        /* Efek hover untuk tombol action pada kartu nama */
+        .action-btn {
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .action-btn:hover {
+            background-color: #007bff;
+            color: white;
+            border-color: #007bff;
+        }
+
+        .btn-outline-info:hover {
+            background-color: #17a2b8;
+            color: white;
+        }
+
+        .btn-outline-warning:hover {
+            background-color: #ffc107;
+            color: white;
+        }
+
+        .btn-outline-danger:hover {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        /* Efek transisi umum */
+        .btn {
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Kartu 3D */
+        .card-3d {
+            perspective: 1000px;
+            transition: transform 0.5s;
+        }
+
+        .card-3d:hover {
+            transform: translateY(-10px) rotateY(5deg) rotateX(5deg);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Shadow tambahan */
+        .card {
+            transition: box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+    </style>
 @endsection

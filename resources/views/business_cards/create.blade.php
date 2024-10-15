@@ -1,13 +1,16 @@
 @extends('layouts.app')
 
+@section('title', 'Tambah Kartu Nama')
+
 @section('content')
 <style>
     body {
         font-family: 'Arial', sans-serif;
-        background: linear-gradient(135deg, #f7f9fc 0%, #e3e6ea 100%);
+        background: #F8F9FA; /* Ganti background menjadi warna seragam dengan halaman index */
         margin: 0;
         padding: 20px;
-        overflow: hidden; /* Prevent scrollbars from appearing during animations */
+        overflow-y: auto; /* Allow vertical scroll */
+        height: 100vh; /* Full height */
     }
 
     .container {
@@ -100,7 +103,7 @@
     .btn-primary {
         background-color: #007bff;
         color: white;
-        padding: 10px;
+        padding: 10px 20px; /* Tambahkan padding horizontal */
         border: none;
         border-radius: 5px;
         font-size: 16px;
@@ -118,7 +121,7 @@
     .btn-back {
         background-color: #6c757d;
         color: white;
-        padding: 10px;
+        padding: 10px 20px; /* Tambahkan padding horizontal */
         border: none;
         border-radius: 5px;
         font-size: 16px;
@@ -137,8 +140,9 @@
 
     .button-container {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-between; /* Align buttons to the sides */
         margin-top: 20px;
+        z-index: 1; /* Bring buttons above the pulse effect */
     }
 </style>
 
@@ -146,6 +150,12 @@
     <h1 class="text-center mb-4">Buat Kartu Bisnis</h1>
     <form action="{{ route('business-cards.store') }}" method="POST" enctype="multipart/form-data" class="form-elegant">
         @csrf
+        <!-- Input untuk file .vcf -->
+        <div class="form-group">
+            <label for="vcard">Unggah File VCF</label>
+            <input type="file" name="vcard" class="form-control" accept=".vcf" required>
+        </div>
+        
         <div class="form-group">
             <label for="name">Nama</label>
             <input type="text" name="name" class="form-control" required>
