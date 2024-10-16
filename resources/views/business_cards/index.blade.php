@@ -5,53 +5,52 @@
         <div class="row">
             <!-- Sidebar Admin -->
 
-
             <!-- Main Content -->
             <div class="col-md-9" style="background-color: #F8F9FA; min-height: 100vh;">
                 <!-- Cards Section (Daftar Kartu Nama) -->
                 <div class="row mt-4">
-                    @foreach ($businessCards as $businessCards)
+                    @foreach ($businessCards as $businessCard)
                         <div class="col-md-6 mb-4">
-                            <div class="card h-100 text-center shadow-sm" style="border-radius: 10px;">
+                            <div class="card h-100 text-center shadow-sm card-3d">
                                 <!-- Foto Profil -->
-                                <img src="{{ asset('storage/' . $businessCards->photo) }}"
-                                    class="card-img-top rounded-circle mt-4 mx-auto"
+                                <img src="{{ asset('storage/' . $businessCard->photo) }}"
+                                    class="card-img-top rounded-circle mt-4 mx-auto img-fluid"
                                     style="width: 100px; height: 100px; object-fit: cover;"
-                                    alt="{{ $businessCards->name }}">
+                                    alt="{{ $businessCard->name }}">
 
                                 <!-- Info Kartu Nama -->
                                 <div class="card-body">
-                                    <h5 class="card-title">{{ $businessCards->name }}</h5>
-                                    <p class="card-text text-muted">{{ $businessCards->position }}</p>
-                                    <p class="card-text text-muted">{{ $businessCards->phone_number }}</p>
-                                    <p class="card-text text-muted">{{ $businessCards->email }}</p>
+                                    <h5 class="card-title">{{ $businessCard->name }}</h5>
+                                    <p class="card-text text-muted">{{ $businessCard->position }}</p>
+                                    <p class="card-text text-muted">{{ $businessCard->phone_number }}</p>
+                                    <p class="card-text text-muted">{{ $businessCard->email }}</p>
                                 </div>
 
                                 <!-- Tombol Aksi dengan Ikon dan Efek Hover -->
                                 <div class="card-footer bg-white d-flex justify-content-center gap-2">
-                                    <a href="{{ route('business-cards.show', $businessCards->name) }}"
-                                        class="btn btn-outline-info btn-sm action-btn" style="width: 80px;">
+                                    <a href="{{ route('business-cards.show', $businessCard->name) }}"
+                                        class="btn btn-outline-info btn-sm action-btn" style="flex: 1; max-width: 80px;">
                                         <img src="{{ asset('assets/img/ikon-show.png') }}" width="25" height="25" alt=""
                                             class="mb-1">
                                         <span>Show</span>
                                     </a>
                                     
-                                    <a href="{{ route('business-cards.edit', $businessCards->name) }}"
-                                        class="btn btn-outline-warning btn-sm action-btn" style="width: 80px;">
+                                    <a href="{{ route('business-cards.edit', $businessCard->name) }}"
+                                        class="btn btn-outline-warning btn-sm action-btn" style="flex: 1; max-width: 80px;">
                                         <img src="{{ asset('assets/img/ikon-edit.png') }}" width="25" height="25" alt=""
                                             class="mb-1"><br>
                                         <span>Edit</span>
                                     </a>
 
-                                    <form action="{{ route('business-cards.destroy', $businessCards->name) }}"
+                                    <form action="{{ route('business-cards.destroy', $businessCard->name) }}"
                                         method="POST" style="display:inline;">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-outline-danger btn-sm action-btn"
-                                            style="width: 80px;">
+                                            style="flex: 1; max-width: 80px;">
                                             <img src="{{ asset('assets/img/ikon-eraser.png') }}" width="25" height="25" alt=""
                                             class="mb-1">
-                                        <span>Hapus</span>
+                                            <span>Hapus</span>
                                         </button>
                                     </form>
                                 </div>
@@ -101,6 +100,26 @@
         /* Efek transisi umum */
         .btn {
             transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Kartu 3D */
+        .card-3d {
+            perspective: 1000px;
+            transition: transform 0.5s;
+        }
+
+        .card-3d:hover {
+            transform: translateY(-10px) rotateY(5deg) rotateX(5deg);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Shadow tambahan */
+        .card {
+            transition: box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
         }
     </style>
 @endsection

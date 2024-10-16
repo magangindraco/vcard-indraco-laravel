@@ -55,13 +55,11 @@
                         class="mb-1">
                     <span>WEBSITE</span>
                 </a>
-
-                <a href="{{ route('business-cards.download-vcard', $businessCard->id) }}" class="btn btn-dark">
-                    <img src="{{ asset('assets/img/ikon-user.png') }}" width="25" height="25" alt="" class="mb-1">
+                <a href="{{ asset('vcard/' . $businessCard->vcard_file) }}" target="_blank" class="btn btn-dark">
+                    <img src="{{ asset('assets/img/ikon-user.png') }}" width="25" height="25" alt=""
+                        class="mb-1">
                     <span>SAVE CONTACT</span>
                 </a>
-                
-                
             </div>
         </div>
         <!-- end of menu -->
@@ -121,6 +119,10 @@
                                 <div class="media-title">www.indraco.com</div>
                                 <div class="media-text">Website</div>
                             </a>
+                            {{-- <a href="<?php echo $web; ?>" target="_blank">
+                                <div class="media-title"><?php echo $web; ?></div>
+                                <div class="media-text">Website</div>
+                            </a> --}}
                         </div>
                     </li>
                 </ul>
