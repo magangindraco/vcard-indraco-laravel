@@ -8,7 +8,7 @@
         font-family: 'Arial', sans-serif;
         background: linear-gradient(135deg, #f7f9fc 0%, #e3e6ea 100%);
         margin: 0;
-        padding: 20px;
+        padding: 0px;
         overflow: hidden;
     }
 

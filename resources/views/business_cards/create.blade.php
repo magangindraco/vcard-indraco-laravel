@@ -8,7 +8,7 @@
         font-family: 'Arial', sans-serif;
         background: #F8F9FA; /* Ganti background menjadi warna seragam dengan halaman index */
         margin: 0;
-        padding: 20px;
+        padding: 0px;
         overflow-y: auto; /* Allow vertical scroll */
         height: 100vh; /* Full height */
     }

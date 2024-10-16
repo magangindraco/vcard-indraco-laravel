@@ -56,7 +56,7 @@
     </style>
 </head>
 
-<body style="background-color: #5D5D5D">
+<body>
 
     <div class="container-fluid">
         <div class="row">

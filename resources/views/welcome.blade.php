@@ -56,7 +56,7 @@
 
         .hero-content {
             color: white;
-            z-index: 1;
+            z-index: 10;
             opacity: 0;
             animation: fadeIn 1s forwards;
             animation-delay: 1.5s;
