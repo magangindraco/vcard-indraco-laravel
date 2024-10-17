@@ -55,7 +55,7 @@
                         class="mb-1">
                     <span>WEBSITE</span>
                 </a>
-                <a href="{{ asset('vcard/' . $businessCard->vcard_file) }}" target="_blank" class="btn btn-dark">
+                <a href="{{ route('business-cards.download-vcard', $businessCard->id) }}" target="_blank" class="btn btn-dark">
                     <img src="{{ asset('assets/img/ikon-user.png') }}" width="25" height="25" alt=""
                         class="mb-1">
                     <span>SAVE CONTACT</span>

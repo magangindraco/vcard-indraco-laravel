@@ -27,3 +27,6 @@ Route::put('/v/update/{name}', [BusinessCardController::class, 'update'])->name(
 
 // Route untuk menghapus kartu bisnis
 Route::delete('/v/{name}', [BusinessCardController::class, 'destroy'])->name('business-cards.destroy');
+
+// Route download .vcf
+Route::get('business-cards/{businessCard}/vcard', [BusinessCardController::class, 'downloadVCard'])->name('business-cards.download-vcard');

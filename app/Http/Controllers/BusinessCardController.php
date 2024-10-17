@@ -6,6 +6,7 @@ use App\Models\BusinessCard;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 use Str; // untuk membuat slug
 
 
@@ -74,6 +75,27 @@ class BusinessCardController extends Controller
         return view('business_cards.show', compact('businessCard')); // Kirim data ke view
     }
 
+
+    // Fungsi untuk meng-generate dan mendownload vCard
+    public function downloadVCard(BusinessCard $businessCard)
+    {
+        // Isi dari vCard
+        $vCardContent = "BEGIN:VCARD\n";
+        $vCardContent .= "VERSION:3.0\n";
+        $vCardContent .= "N:{$businessCard->name};;;;\n";
+        $vCardContent .= "FN:{$businessCard->name}\n";
+        $vCardContent .= "TITLE:{$businessCard->position}\n";
+        $vCardContent .= "TEL;TYPE=CELL,voice:{$businessCard->mobile}\n";
+        $vCardContent .= "EMAIL:{$businessCard->email}\n";
+        $vCardContent .= "END:VCARD";
+
+        // Nama file
+        $fileName = "vcard_{$businessCard->name}.vcf";
+
+        // Simpan file sementara dan download
+        Storage::disk('local')->put($fileName, $vCardContent);
+        return response()->download(storage_path("app/{$fileName}"))->deleteFileAfterSend(true);
+    }
 
 
     /**
