@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\BusinessCard;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Str; // untuk membuat slug
@@ -20,8 +21,37 @@ class BusinessCardController extends Controller
     public function index()
     {
         $businessCards = BusinessCard::all();
-        return view('business_cards.index', compact('businessCards'));
+        return view('login', compact('businessCards'));
+
+        // return view('login');
     }
+
+    function login(Request $request)
+    {
+        $request->validate([
+            'email' => 'required',
+            'password' => 'required'
+        ], [
+            'email.required' => 'email wajib di isi',
+            'password.required' => 'password wajib di isi'
+        ]);
+
+        $infologin = [
+            'email' => $request->email,
+            'password' => $request->password,
+        ];
+
+        if (Auth::attempt($infologin)) {
+            // Ambil data BusinessCard setelah login berhasil
+            $businessCards = BusinessCard::all();
+
+            // Kirimkan $businessCards ke view 'business_cards.index'
+            return view('business_cards.index', compact('businessCards'));
+        } else {
+            return redirect('')->withErrors('username atau password tidak sesuai')->withInput();
+        }
+    }
+
 
 
     /**

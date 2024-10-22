@@ -10,40 +10,40 @@
             <div class="col-md-9" style="background-color: #F8F9FA; min-height: 100vh;">
                 <!-- Cards Section (Daftar Kartu Nama) -->
                 <div class="row mt-4">
-                    @foreach ($businessCards as $businessCards)
+                    @foreach ($businessCards as $cards)
                         <div class="col-md-6 mb-4">
                             <div class="card h-100 text-center shadow-sm" style="border-radius: 10px;">
                                 <!-- Foto Profil -->
-                                <img src="{{ asset('storage/' . $businessCards->photo) }}"
+                                <img src="{{ asset('storage/' . $cards->photo) }}"
                                     class="card-img-top rounded-circle mt-4 mx-auto"
                                     style="width: 100px; height: 100px; object-fit: cover;"
-                                    alt="{{ $businessCards->name }}">
+                                    alt="{{ $cards->name }}">
 
                                 <!-- Info Kartu Nama -->
                                 <div class="card-body">
-                                    <h5 class="card-title">{{ $businessCards->name }}</h5>
-                                    <p class="card-text text-muted">{{ $businessCards->position }}</p>
-                                    <p class="card-text text-muted">{{ $businessCards->phone_number }}</p>
-                                    <p class="card-text text-muted">{{ $businessCards->email }}</p>
+                                    <h5 class="card-title">{{ $cards->name }}</h5>
+                                    <p class="card-text text-muted">{{ $cards->position }}</p>
+                                    <p class="card-text text-muted">{{ $cards->phone_number }}</p>
+                                    <p class="card-text text-muted">{{ $cards->email }}</p>
                                 </div>
 
                                 <!-- Tombol Aksi dengan Ikon dan Efek Hover -->
                                 <div class="card-footer bg-white d-flex justify-content-center gap-2">
-                                    <a href="{{ route('business-cards.show', $businessCards->name) }}"
+                                    <a href="{{ route('business-cards.show', $cards->name) }}"
                                         class="btn btn-outline-info btn-sm action-btn" style="width: 80px;">
                                         <img src="{{ asset('assets/img/ikon-show.png') }}" width="25" height="25" alt=""
                                             class="mb-1">
                                         <span>Show</span>
                                     </a>
                                     
-                                    <a href="{{ route('business-cards.edit', $businessCards->name) }}"
+                                    <a href="{{ route('business-cards.edit', $cards->name) }}"
                                         class="btn btn-outline-warning btn-sm action-btn" style="width: 80px;">
                                         <img src="{{ asset('assets/img/ikon-edit.png') }}" width="25" height="25" alt=""
                                             class="mb-1"><br>
                                         <span>Edit</span>
                                     </a>
 
-                                    <form action="{{ route('business-cards.destroy', $businessCards->name) }}"
+                                    <form action="{{ route('business-cards.destroy', $cards->name) }}"
                                         method="POST" style="display:inline;">
                                         @csrf
                                         @method('DELETE')

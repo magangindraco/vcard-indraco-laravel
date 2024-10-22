@@ -3,7 +3,7 @@
 use App\Http\Controllers\BusinessCardController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\KaryawanController;
-
+use App\Http\Controllers\SesiController;
 use App\Http\Controllers\VCardController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,11 +21,42 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/v', function () {
 //     return view('welcome');
 // });
+// Route::get('/',[SesiController::class, 'index']);
 
-// tes
+// Route::post('/',[SesiController::class, 'login']);
+
+Route::get('/', [BusinessCardController::class, 'index'])->name('business-cards.index');
+Route::post('/', [BusinessCardController::class, 'login'])->name('business-cards.index');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Route untuk menampilkan halaman bisnis
-Route::get('/', [BusinessCardController::class, 'index'])->name('business-cards.index');
+
 Route::get('/v', [BusinessCardController::class, 'index'])->name('business-cards.index');
 
 // Route untuk menampilkan form tambah kartu nama
