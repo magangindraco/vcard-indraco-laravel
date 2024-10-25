@@ -14,11 +14,12 @@ return new class extends Migration
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('photo');
-            $table->string('title');
-            $table->string('phone');
+            $table->string('position');
+            $table->string('office');
+            $table->string('mobile');
             $table->string('email');
-            $table->string('vcard_path'); // untuk menyimpan path file .vcf
+            $table->string('photo')->nullable();
+             // untuk menyimpan path file .vcf
             $table->timestamps();
         });
     }
