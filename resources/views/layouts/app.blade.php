@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'Dashboard INDRACO')</title>
+    <link rel="icon" href="{{ asset('assets/img/icon-indraco.ico') }}" type="image/x-icon">
+
+    <title>@yield('title', 'Dashboard')</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
@@ -29,7 +31,7 @@
 
         /* Sidebar tak gawe model ndek kene, cubo cubo ae gawe belajar*/
         .sidebar {
-            background-color: rgba(139, 5, 0);
+            background-color: #444444;
             /* Fungsi ne gawe efect transparan jare google, gawe RGBA */
             color: #ffffff;
             height: 100vh;
@@ -43,7 +45,7 @@
             /* Ukuran e width */
             z-index: 1000;
             border-right: 2px solid #DEB887;
-            /* iki broder e */
+            /* iki border e */
         }
 
         .sidebar.show {
@@ -68,7 +70,7 @@
         }
 
         .sidebar a:hover {
-            background-color: #A52A2A;
+            background-color: #6c7072;
             transform: scale(1.05);
             /* Slightly ukuran e hover */
         }
@@ -145,7 +147,7 @@
             <div class="sidebar" id="sidebar">
                 <div class="d-flex align-items-center">
                     <a href="#" class="navbar-brand me-3">
-                        <img src="{{ asset('images/sdastore.png') }}" alt="LOGO" width="130">
+                        <img src="{{ asset('assets/img/icon-indraco.ico') }}" alt="LOGO" width="130">
                     </a>
                     <button type="button" class="btn-close close-btn" id="closeSidebar"></button>
                     </style>
@@ -163,47 +165,13 @@
                         <i class="bi bi-card-list"></i>
                         Daftar Kartu Nama
                     </a>
-                    <a href="https://sdaglobal.co.id" target="_blank" class="d-flex align-items-center">
-                        <i class="bi bi-info-circle-fill"></i>
-                        Informasi SDA Store
-                    </a>
                     <hr class="text-white">
-                    {{-- <a href="http://127.0.0.1:8000/#contact" class="d-flex align-items-center">
-                            <i class="bi bi-house-door"></i>
-                            Beranda
-                        </a>
-                        <a href="#" class="d-flex align-items-center">
-                            <i class="bi bi-gear-fill"></i>
-                            Pengaturan
-                        </a>
-                        <a href="#" class="d-flex align-items-center">
-                            <i class="bi bi-chat-dots"></i>
-                            Pesan
-                        </a>
-                        <a href="#" class="d-flex align-items-center">
-                            <i class="bi bi-person-circle"></i>
-                            Profil
-                        </a>
-                   
-                        <a href="{{ route('employees.index') }}" class="d-flex align-items-center">
-                            <i class="bi bi-card-list"></i>
-                            Daftar Kartu Nama
-                        </a> --}}
-
-                    {{-- form logout lama --}}
-                    {{-- <form action="{{ route('logout') }}" method="POST" class="d-flex align-items-center">
-                        @csrf
-                        <button type="submit" class="btn btn-danger d-flex align-items-center">
-                            <i class="bi bi-box-arrow-right"></i>
-                            Logout
-                        </button>
-                    </form> --}}
                     <!-- Hidden form for logout -->
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>
 
-                    <!-- Styled as a link but triggers logout -->
+                    <!-- Styled link logout -->
                     <a href="" class="d-flex align-items-center"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         <i class="bi bi-box-arrow-right"></i>
@@ -225,7 +193,7 @@
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <a href="#" class="navbar-brand ms-auto d-none d-lg-inline">
-                            <img src="{{ asset('images/sda.png') }}" alt="LOGO" width="50">
+                            <img src="{{ asset('assets/img/logo-color.png') }}" alt="LOGO" width="50">
                         </a>
                     </div>
                 </nav>

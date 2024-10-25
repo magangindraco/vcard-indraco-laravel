@@ -23,10 +23,10 @@
                     <a href="{{ route('employees.edit', $employee->name) }}" class="btn btn-warning me-2">
                         <i class="bi bi-pencil-fill"></i> Edit
                     </a>
-                    <form action="{{ route('employees.destroy', $employee->id) }}" method="POST" style="display:inline;">
+                    <form action="{{ route('employees.destroy', $employee->name) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus karyawan ini?');">
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus vcard ini?');">
                             <i class="bi bi-trash-fill"></i> Dell
                         </button>
                     </form>

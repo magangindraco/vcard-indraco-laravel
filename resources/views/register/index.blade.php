@@ -25,7 +25,7 @@
 
         .left-side {
             width: 50%;
-            background-image: url('assets/img/logo-color.png');
+            background-image: url('assets/img/kopi.jpg');
             background-size: cover;
             background-position: center;
         }

@@ -9,6 +9,7 @@
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet"> <!-- Boxicons CDN -->
+    <link rel="icon" href="{{ asset('assets/img/icon-indraco.ico') }}" type="image/x-icon">
     <title>Login</title>
     <style>
         body {
@@ -25,7 +26,7 @@
 
         .left-side {
             width: 50%;
-            background-image: url('assets/img/logo-color.png'); /* Updated path */
+            background-image: url('assets/img/kopi.jpg'); /* Updated path */
             background-size: cover;
             background-position: center;
         }
@@ -143,7 +144,7 @@
                     <button class="btn btn-primary w-100 py-2 mt-3" type="submit">Login</button>
 
                 </form>
-                <small>Belum punya akun? <a href="/register">Register Now!</a></small>
+                {{-- <small>Belum punya akun? <a href="/register">Register Now!</a></small> --}}
             </div>
         </div>
     </div>

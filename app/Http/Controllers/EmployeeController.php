@@ -185,5 +185,13 @@ class EmployeeController extends Controller
         Storage::disk('local')->put($fileName, $vCardContent);
         return response()->download(storage_path("app/{$fileName}"))->deleteFileAfterSend(true);
     }
+
+    public function destroy($name) // Ganti $id dengan $name
+    {
+        $employee = Employee::where('name', $name)->firstOrFail(); // Menggunakan where untuk mencari berdasarkan nama
+        $employee->delete();
+
+        return redirect()->route('employees.index')->with('success', 'Kartu nama berhasil dihapus.');
+    }
 }
 

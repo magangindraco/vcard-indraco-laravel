@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
+<title>@yield('title', 'Create Data')</title>
 @section('content')
+
 
 <div class="container min-vh-100 d-flex justify-content-center align-items-center">
     <div class="row justify-content-center w-100">
